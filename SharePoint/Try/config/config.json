@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "farhan-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/farhan/FarhanWebPart.js",
+          "manifest": "./src/webparts/farhan/FarhanWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "FarhanWebPartStrings": "lib/webparts/farhan/loc/{locale}.js"
+  }
+}

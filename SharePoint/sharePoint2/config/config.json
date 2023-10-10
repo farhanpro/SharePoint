@@ -1,0 +1,45 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "hello-world-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/helloWorld/HelloWorldWebPart.js",
+          "manifest": "./src/webparts/helloWorld/HelloWorldWebPart.manifest.json"
+        }
+      ]
+    },
+    "helloworld-2-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/helloworld2/Helloworld2WebPart.js",
+          "manifest": "./src/webparts/helloworld2/Helloworld2WebPart.manifest.json"
+        }
+      ]
+    },
+    "calculator-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/calculator/CalculatorWebPart.js",
+          "manifest": "./src/webparts/calculator/CalculatorWebPart.manifest.json"
+        }
+      ]
+    },
+    "shopping-cart-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/shoppingCart/ShoppingCartWebPart.js",
+          "manifest": "./src/webparts/shoppingCart/ShoppingCartWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "HelloWorldWebPartStrings": "lib/webparts/helloWorld/loc/{locale}.js",
+    "Helloworld2WebPartStrings": "lib/webparts/helloworld2/loc/{locale}.js",
+    "CalculatorWebPartStrings": "lib/webparts/calculator/loc/{locale}.js",
+    "ShoppingCartWebPartStrings": "lib/webparts/shoppingCart/loc/{locale}.js"
+  }
+}

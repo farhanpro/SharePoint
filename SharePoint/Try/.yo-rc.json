@@ -1,0 +1,16 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "version": "1.15.0",
+    "libraryName": "farhan",
+    "libraryId": "32fd5523-3a70-4aee-aa26-3bc2c857a8b8",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "Farhan",
+    "solutionShortDescription": "Farhan description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "componentType": "webpart"
+  }
+}

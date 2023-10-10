@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "farhan-client-side-solution",
+    "id": "32fd5523-3a70-4aee-aa26-3bc2c857a8b8",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.15.0"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "Farhan description"
+      },
+      "longDescription": {
+        "default": "Farhan description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "farhan Feature",
+        "description": "The feature that activates elements of the farhan solution.",
+        "id": "d2369ece-2ef8-436d-97a1-b4b91d723dca",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/farhan.sppkg"
+  }
+}
