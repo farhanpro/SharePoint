@@ -22,7 +22,7 @@
       "webpack-env"
     ],
     "lib": [
-      "es5",
+      "es7",
       "dom",
       "es2015.collection",
       "es2015.promise"
@@ -32,4 +32,5 @@
     "src/**/*.ts",
     "src/**/*.tsx"
   ]
+  
 }

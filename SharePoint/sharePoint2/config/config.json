@@ -33,6 +33,14 @@
           "manifest": "./src/webparts/shoppingCart/ShoppingCartWebPart.manifest.json"
         }
       ]
+    },
+    "employee-details-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/employeeDetails/EmployeeDetailsWebPart.js",
+          "manifest": "./src/webparts/employeeDetails/EmployeeDetailsWebPart.manifest.json"
+        }
+      ]
     }
   },
   "externals": {},
@@ -40,6 +48,7 @@
     "HelloWorldWebPartStrings": "lib/webparts/helloWorld/loc/{locale}.js",
     "Helloworld2WebPartStrings": "lib/webparts/helloworld2/loc/{locale}.js",
     "CalculatorWebPartStrings": "lib/webparts/calculator/loc/{locale}.js",
-    "ShoppingCartWebPartStrings": "lib/webparts/shoppingCart/loc/{locale}.js"
+    "ShoppingCartWebPartStrings": "lib/webparts/shoppingCart/loc/{locale}.js",
+    "EmployeeDetailsWebPartStrings": "lib/webparts/employeeDetails/loc/{locale}.js"
   }
 }
