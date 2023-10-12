@@ -204,7 +204,7 @@ export default class EmployeeDetails extends React.Component<
                     />
                   </th>
                   <th  style={{paddingRight:"20px"}}>
-                    <button onClick={this.handleEmployeeSubmit}>Submit</button>
+                    <button className={styles["submit-btn"]} onClick={this.handleEmployeeSubmit}>Submit</button>
                   </th>
                 </tr>
               </thead>
@@ -225,7 +225,7 @@ export default class EmployeeDetails extends React.Component<
                       <button className={styles["edit-btn"]} onClick={() => this.handleEdit(item)}>
                         Edit
                       </button>
-                      <button className={styles["delete-btn"]} onClick={() => this.handleDelete(item.id)}>
+                      <button  style={{margin:"5px"}} className={styles["delete-btn"]} onClick={() => this.handleDelete(item.id)}>
                         Delete
                       </button>
                     </td>

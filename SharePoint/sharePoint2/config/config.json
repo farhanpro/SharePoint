@@ -50,5 +50,6 @@
     "CalculatorWebPartStrings": "lib/webparts/calculator/loc/{locale}.js",
     "ShoppingCartWebPartStrings": "lib/webparts/shoppingCart/loc/{locale}.js",
     "EmployeeDetailsWebPartStrings": "lib/webparts/employeeDetails/loc/{locale}.js"
+    
   }
 }
