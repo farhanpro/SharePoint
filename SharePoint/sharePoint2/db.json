@@ -2,18 +2,19 @@
   "posts": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "name": "farhan",
+      "designation": "Software Engineer",
+      "email": "nikitaraut093@gmail.com",
+      "number": "",
+      "dob": ""
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "id": 2,
+      "name": "farhan Shaikhdd",
+      "designation": "Software Engineer",
+      "email": "nikitaraut093@gmail.com",
+      "number": "",
+      "dob": ""
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

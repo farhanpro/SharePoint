@@ -1,7 +1,7 @@
 import * as React from "react";
 import type { IShoppingCartProps } from "./IShoppingCartProps";
 import { IShoppingCartState } from "./IShoppingCartState";
-import { Button } from '@fluentui/react-components';
+
 
 export default class ShoppingCart extends React.Component<
   IShoppingCartProps,
@@ -9,7 +9,7 @@ export default class ShoppingCart extends React.Component<
 > {
   constructor(props: IShoppingCartProps) {
     super(props);
-    this.state = { shoppingCart: '',cartArray :[] };
+    this.state = { shoppingCart: '',cartArray :[] ,message : ''};
   }
 
 
@@ -30,22 +30,31 @@ export default class ShoppingCart extends React.Component<
     if(index > -1){
       EditedCard.splice(index, 1);
     }
+    else{
+    this.setState({message: "Item not found"})
+    setTimeout( ()=> {this.setState({message:""})},3000)
+    }
     this.setState({ cartArray: EditedCard , shoppingCart : ''})
 
   }
 
   public render() {
     const { shoppingCart,cartArray } = this.state;
-    //let arr: string[] = ["apple", "banana", "cherry"];
+    
 
     return (
       <div>
         <h1>Shopping Cart</h1>
         <div>
-          <p>Input 2:</p>
+          <p>Input :</p>
           <input type="string" value={shoppingCart} onChange={(e) => this.handleInputChange(e)}/>
-          <Button appearance="primary" onClick = {this.handleSubmit}> Submit </Button>
-              <Button appearance="subtle" onClick={this.handleDelete}> Delete</Button>
+          
+          <button  onClick = {this.handleSubmit}> Submit </button>
+              <button  onClick={this.handleDelete}> Delete</button>
+           <br/>
+           <br/>
+           {this.state.message  }
+             
           <h1>Shopping list is :  {cartArray.join(', ')}</h1>
         </div>
       

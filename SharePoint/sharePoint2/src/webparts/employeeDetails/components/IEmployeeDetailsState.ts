@@ -1,15 +1,21 @@
 export interface IEmployeeDetailsState {
     employeeDetails: {
-      id: number;
+      id: string;
       name: string;
       designation: string;
+      email: string;
+      number: string;
+      dob:string;
     };
     employeeArr: Employee[];
   }
   
   interface Employee {
-    id: number;
+    id: string;
     name: string;
     designation: string;
+    email: string;
+    number: string;
+    dob:string;
   }
   
