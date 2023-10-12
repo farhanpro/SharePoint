@@ -1,18 +1,26 @@
 {
   "posts": [
     {
-      "id": 1,
-      "name": "farhan",
+      "id": 2,
+      "name": "farhan Shaikhdd",
       "designation": "Software Engineer",
-      "email": "nikitaraut093@gmail.com",
+      "email": "shaikhfarhan549@gmail.com",
       "number": "",
       "dob": ""
     },
     {
-      "id": 2,
-      "name": "farhan Shaikhdd",
+      "id": 3,
+      "name": "",
+      "designation": "",
+      "email": "",
+      "number": "",
+      "dob": ""
+    },
+    {
+      "id": 4,
+      "name": "Pravin",
       "designation": "Software Engineer",
-      "email": "nikitaraut093@gmail.com",
+      "email": "pravin@gmail.com",
       "number": "",
       "dob": ""
     }

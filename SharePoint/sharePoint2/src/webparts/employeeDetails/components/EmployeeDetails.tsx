@@ -1,7 +1,7 @@
 import * as React from "react";
 import type { IEmployeeDetailsProps } from "./IEmployeeDetailsProps";
 import { IEmployeeDetailsState } from "./IEmployeeDetailsState";
-import './EmployeeDetails.module.scss';
+import styles from "./EmployeeDetails.module.scss";
 
 interface Employee {
   id: string;
@@ -164,15 +164,19 @@ export default class EmployeeDetails extends React.Component<
         <div>
           <h1>Employee Management System</h1>
           <div >
-            <table className="employee-table">
+            <table className={styles["employee-table"]}>
               <thead>
                 <tr>
                   <th>Name</th>
                   <th>Designation</th>
                   <th>Email</th>
+                  <th>Action</th>
                 </tr>
                 <tr>
-                  <th>
+                  <th
+                  
+                    style={{paddingRight:"20px"}}
+                  >
                     <input
                       type="text"
                       name="name"
@@ -181,7 +185,7 @@ export default class EmployeeDetails extends React.Component<
                       onChange={this.handleChange}
                     />
                   </th>
-                  <th>
+                  <th  style={{paddingRight:"20px"}}>
                     <input
                       type="text"
                       name="designation"
@@ -190,7 +194,7 @@ export default class EmployeeDetails extends React.Component<
                       onChange={this.handleChange}
                     />
                   </th>
-                  <th>
+                  <th  style={{paddingRight:"20px"}}>
                     <input
                       type="text"
                       name="email"
@@ -199,7 +203,7 @@ export default class EmployeeDetails extends React.Component<
                       onChange={this.handleChange}
                     />
                   </th>
-                  <th>
+                  <th  style={{paddingRight:"20px"}}>
                     <button onClick={this.handleEmployeeSubmit}>Submit</button>
                   </th>
                 </tr>
@@ -218,10 +222,10 @@ export default class EmployeeDetails extends React.Component<
                     <td>{item.email}</td>
                     
                     <td>
-                      <button className="edit-btn" onClick={() => this.handleEdit(item)}>
+                      <button className={styles["edit-btn"]} onClick={() => this.handleEdit(item)}>
                         Edit
                       </button>
-                      <button className="delete-btn" onClick={() => this.handleDelete(item.id)}>
+                      <button className={styles["delete-btn"]} onClick={() => this.handleDelete(item.id)}>
                         Delete
                       </button>
                     </td>
