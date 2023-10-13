@@ -1,0 +1,25 @@
+@import '~@fluentui/react/dist/sass/References.scss';
+
+.div {
+  width: 300px;
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.h1 {
+  font-size: 18px;
+  margin: 8px 0;
+}
+
+.img {
+  width: 100%;
+  max-width: 200px;
+  border-radius: 50%;
+  margin-top: 10px;
+}
+
+/* Add additional styles as needed */

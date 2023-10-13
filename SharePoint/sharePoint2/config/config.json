@@ -49,6 +49,14 @@
           "manifest": "./src/webparts/parentChild/ParentChildWebPart.manifest.json"
         }
       ]
+    },
+    "rest-api-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/restApi/RestApiWebPart.js",
+          "manifest": "./src/webparts/restApi/RestApiWebPart.manifest.json"
+        }
+      ]
     }
   },
   "externals": {},
@@ -58,6 +66,7 @@
     "CalculatorWebPartStrings": "lib/webparts/calculator/loc/{locale}.js",
     "ShoppingCartWebPartStrings": "lib/webparts/shoppingCart/loc/{locale}.js",
     "EmployeeDetailsWebPartStrings": "lib/webparts/employeeDetails/loc/{locale}.js",
-    "ParentChildWebPartStrings": "lib/webparts/parentChild/loc/{locale}.js"
+    "ParentChildWebPartStrings": "lib/webparts/parentChild/loc/{locale}.js",
+    "RestApiWebPartStrings": "lib/webparts/restApi/loc/{locale}.js"
   }
 }
