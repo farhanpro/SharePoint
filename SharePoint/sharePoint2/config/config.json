@@ -57,6 +57,30 @@
           "manifest": "./src/webparts/restApi/RestApiWebPart.manifest.json"
         }
       ]
+    },
+    "counter-2-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/counter2/Counter2WebPart.js",
+          "manifest": "./src/webparts/counter2/Counter2WebPart.manifest.json"
+        }
+      ]
+    },
+    "fluient-ui-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/fluientUi/FluientUiWebPart.js",
+          "manifest": "./src/webparts/fluientUi/FluientUiWebPart.manifest.json"
+        }
+      ]
+    },
+    "editable-rows-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/editableRows/EditableRowsWebPart.js",
+          "manifest": "./src/webparts/editableRows/EditableRowsWebPart.manifest.json"
+        }
+      ]
     }
   },
   "externals": {},
@@ -67,6 +91,9 @@
     "ShoppingCartWebPartStrings": "lib/webparts/shoppingCart/loc/{locale}.js",
     "EmployeeDetailsWebPartStrings": "lib/webparts/employeeDetails/loc/{locale}.js",
     "ParentChildWebPartStrings": "lib/webparts/parentChild/loc/{locale}.js",
-    "RestApiWebPartStrings": "lib/webparts/restApi/loc/{locale}.js"
+    "RestApiWebPartStrings": "lib/webparts/restApi/loc/{locale}.js",
+    "Counter2WebPartStrings": "lib/webparts/counter2/loc/{locale}.js",
+    "FluientUiWebPartStrings": "lib/webparts/fluientUi/loc/{locale}.js",
+    "EditableRowsWebPartStrings": "lib/webparts/editableRows/loc/{locale}.js"
   }
 }

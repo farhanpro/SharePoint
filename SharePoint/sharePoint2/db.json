@@ -1,20 +1,49 @@
 {
   "posts": [
     {
-      "id": 2,
-      "name": "farhan Shaikhdd",
-      "designation": "Software Engineer9",
-      "email": "shaikhfarhan549@gmail.com",
+      "id": 3,
+      "name": "Farhan",
+      "designation": "Game Developers",
+      "email": "ironman@outlook",
       "number": "",
-      "dob": ""
+      "dob": "",
+      "isEdit": false
     },
     {
-      "id": 3,
-      "name": "Farhan 2 Shaikh",
-      "designation": "Game Developer",
-      "email": "ironman@gmail.com",
+      "id": 5,
+      "name": "Farhan3",
+      "designation": "Farhan",
+      "email": "farhan@sonorasoft.com",
       "number": "",
-      "dob": ""
+      "dob": "",
+      "isEdit": false
+    },
+    {
+      "id": 9,
+      "name": "Devan p",
+      "designation": "Software Engineer",
+      "email": "nikitaraut093@gmail.com",
+      "number": "",
+      "dob": "",
+      "isEdit": false
+    },
+    {
+      "id": 10,
+      "name": "qwerrty",
+      "designation": "qwerty",
+      "email": "farhan@farhan.com",
+      "number": "",
+      "dob": "",
+      "isEdit": false
+    },
+    {
+      "id": 4,
+      "name": "Farhan2",
+      "designation": "Farhanwe",
+      "email": "farhan327426@gmail.com",
+      "number": "",
+      "dob": "",
+      "isEdit": false
     }
   ]
 }

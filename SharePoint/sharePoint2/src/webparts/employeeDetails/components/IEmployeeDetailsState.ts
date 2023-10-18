@@ -6,6 +6,7 @@ export interface IEmployeeDetailsState {
       email: string;
       number: string;
       dob:string;
+      isEdit : boolean;
     };
     employeeArr: Employee[];
   }
@@ -17,5 +18,6 @@ export interface IEmployeeDetailsState {
     email: string;
     number: string;
     dob:string;
+    isEdit : boolean;
   }
   
