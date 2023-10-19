@@ -81,6 +81,14 @@
           "manifest": "./src/webparts/editableRows/EditableRowsWebPart.manifest.json"
         }
       ]
+    },
+    "fluient-form-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/fluientForm/FluientFormWebPart.js",
+          "manifest": "./src/webparts/fluientForm/FluientFormWebPart.manifest.json"
+        }
+      ]
     }
   },
   "externals": {},
@@ -94,6 +102,7 @@
     "RestApiWebPartStrings": "lib/webparts/restApi/loc/{locale}.js",
     "Counter2WebPartStrings": "lib/webparts/counter2/loc/{locale}.js",
     "FluientUiWebPartStrings": "lib/webparts/fluientUi/loc/{locale}.js",
-    "EditableRowsWebPartStrings": "lib/webparts/editableRows/loc/{locale}.js"
+    "EditableRowsWebPartStrings": "lib/webparts/editableRows/loc/{locale}.js",
+    "FluientFormWebPartStrings": "lib/webparts/fluientForm/loc/{locale}.js"
   }
 }
