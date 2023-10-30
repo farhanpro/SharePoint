@@ -7,7 +7,6 @@ import {
   Dialog,
   DialogType,
   DialogFooter,
-  IconButton,
   Modal,
   TextField,
   Stack,
@@ -97,12 +96,12 @@ closeModal = () => {
 
       <Stack horizontal tokens={{ childrenGap: 30 }} style={{marginTop:"10px"}}>
           <PrimaryButton type="submit" onClick={this.handleSubmit}>Submit</PrimaryButton>
-          <IconButton
+          {/* <IconButton
           iconProps={{ iconName: 'Help' }}
           title="Help"
           ariaLabel="Help"
           onClick={this.handleHelpIconClick}
-        /> gf 
+        />  */}
 
           <DefaultButton>Cancel</DefaultButton>
         

@@ -89,6 +89,30 @@
           "manifest": "./src/webparts/fluientForm/FluientFormWebPart.manifest.json"
         }
       ]
+    },
+    "curd-pnpjs-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/curdPnpjs/CurdPnpjsWebPart.js",
+          "manifest": "./src/webparts/curdPnpjs/CurdPnpjsWebPart.manifest.json"
+        }
+      ]
+    },
+    "spfx-crud-pnp-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/spfxCrudPnp/SpfxCrudPnpWebPart.js",
+          "manifest": "./src/webparts/spfxCrudPnp/SpfxCrudPnpWebPart.manifest.json"
+        }
+      ]
+    },
+    "assingment-8-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/assingment8/Assingment8WebPart.js",
+          "manifest": "./src/webparts/assingment8/Assingment8WebPart.manifest.json"
+        }
+      ]
     }
   },
   "externals": {},
@@ -103,6 +127,12 @@
     "Counter2WebPartStrings": "lib/webparts/counter2/loc/{locale}.js",
     "FluientUiWebPartStrings": "lib/webparts/fluientUi/loc/{locale}.js",
     "EditableRowsWebPartStrings": "lib/webparts/editableRows/loc/{locale}.js",
-    "FluientFormWebPartStrings": "lib/webparts/fluientForm/loc/{locale}.js"
+    "FluientFormWebPartStrings": "lib/webparts/fluientForm/loc/{locale}.js",
+    "CurdPnpjsWebPartStrings": "lib/webparts/curdPnpjs/loc/{locale}.js",
+    "FaqWebPartStrings": "lib/webparts/faq/loc/{locale}.js",
+    "PnpjsoperationsWebPartStrings": "lib/webparts/pnpjsoperations/loc/{locale}.js",
+    "SpfCurdPnpWebPartStrings": "lib/webparts/spfCurdPnp/loc/{locale}.js",
+    "SpfxCrudPnpWebPartStrings": "lib/webparts/spfxCrudPnp/loc/{locale}.js",
+    "Assingment8WebPartStrings": "lib/webparts/assingment8/loc/{locale}.js"
   }
 }
