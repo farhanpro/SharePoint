@@ -13,21 +13,24 @@ export default class Assingment8 extends React.Component<IAssingment8Props, IAss
     sp = spfi().using(SPFx(this.props.spcontext));
     this.state = {
       employeeDetails:{
+        Id : 0,
         title : "",
         employeeAge : "",
         linkedInProfile:"",
         isActive : true
       },
+      isEditCall : false,
       employeeArr :[]
     };
   }
 
   componentDidMount(): void {
-    sp.web.lists.getByTitle("Assingment_8").items.select("Title","Active","ProfileLink","Age/Age").expand("Age")()
+    sp.web.lists.getByTitle("Assingment_8").items.select("Id","Title","Active","ProfileLink","Age/Age").expand("Age")()
     .then((items: any[]) => {
       let modifiedData : any[] =[];
       items.forEach(element => {
         let modifiedObject : any ={};
+        modifiedObject.Id = element.Id;
         modifiedObject.title = element.Title;
         modifiedObject.isActive = element.Active;
         modifiedObject.linkedInProfile = element.ProfileLink.Url;
@@ -45,21 +48,87 @@ export default class Assingment8 extends React.Component<IAssingment8Props, IAss
 
   public createItem = async (): Promise<void>=>{
     try{
-      const {title,employeeAge,linkedInProfile,isActive} = this.state.employeeDetails;
-      const addedItems = await sp.web.lists.getByTitle("Assingment_8").items.select("Title","Active","ProfileLink")
-      .add({Title:title,Active:isActive,ProfileLink:linkedInProfile,Age:employeeAge});
-      console.log("Added Items",addedItems);
-      alert("Item Added Successfully");
+      const {Id,title,linkedInProfile,isActive} = this.state.employeeDetails;
+      const addedItem = await sp.web.lists.getByTitle("Assingment_8").items.add(
+        {
+          Id:Id,
+          Title:title,
+          Active:isActive,
+          ProfileLink: { Url:linkedInProfile},
+        //  Age:employeeAge
+        });
+      console.log("AddedITems",addedItem);
       this.setState({employeeDetails:{
+        Id : 0,
         title : "",
         employeeAge : "",
         linkedInProfile:"",
-        isActive : true
-      }});}
-      catch(error){
-        console.log("Error",error);
-      }
+        isActive : true}
+      });
+      ()=>{this.componentDidMount()}
+    }
+    catch(e){
+      console.log("Error",e);
+    }
   }
+
+  public deleteItem = async (itemId:any): Promise<void>=>{
+    try{
+      await sp.web.lists.getByTitle("Assingment_8").items.getById(itemId).delete();
+      await this.componentDidMount();
+      alert(`ITem Deleted Succesfully`);
+    }
+    catch (err){
+      console.log("Error",err);
+    }
+  }
+
+  public editItem = async (itemId : number):Promise<void> =>
+  {
+    console.log("Item",itemId);
+    const searchITem = sp.web.lists.getByTitle("Assingment_8").items.getById(itemId)()
+    .then((result) => {
+      this.setState({
+        employeeDetails:{ 
+          Id:result.Id,
+          title:result.Title,
+          employeeAge:result.AgeId,
+          linkedInProfile:result.ProfileLink.Url,
+          isActive:result.Active},
+          isEditCall : true
+        })
+      console.log(result)
+    
+    })
+    console.log("SearchItem",searchITem);
+    
+  }
+  public updateItem = async ():Promise<void> =>{
+    try{
+      const {Id,title,linkedInProfile,isActive} = this.state.employeeDetails;
+      const updatedItem = await sp.web.lists.getByTitle("Assingment_8").items.getById(Id).update({
+        Title:title,
+        Active:isActive,
+        ProfileLink: { Url:linkedInProfile},
+      });
+      console.log("UpdatedItem",updatedItem);
+      this.setState({employeeDetails:{
+        Id : 0,
+        title : "",
+        employeeAge : "",
+        linkedInProfile:"",
+        isActive : true},
+        isEditCall:false
+      });
+      ()=>{this.componentDidMount()}
+    }
+    catch(e){
+      console.log("Error",e);
+    }
+  
+  }
+
+  
 
   public render(): React.ReactElement<IAssingment8Props> {
     return (
@@ -69,12 +138,13 @@ export default class Assingment8 extends React.Component<IAssingment8Props, IAss
       </div>
       <br/>
       <Stack horizontal tokens={{ childrenGap: 40 }}>
+        <TextField label='Enter Id' value={this.state.employeeDetails.Id.toString()} onChange={(e:any)=>this.setState({employeeDetails:{...this.state.employeeDetails,Id:e.target.value}})}/>
       <TextField label='Enter Title' value={this.state.employeeDetails.title} onChange={(e:any)=>this.setState({employeeDetails:{...this.state.employeeDetails,title:e.target.value}})}/>
       <TextField label='Enter Age' value={this.state.employeeDetails.employeeAge} onChange={(e:any)=>this.setState({employeeDetails:{...this.state.employeeDetails,employeeAge:e.target.value}})}/>
       <TextField label='Enter Profile Link' value={this.state.employeeDetails.linkedInProfile} onChange={(e:any)=>this.setState({employeeDetails:{...this.state.employeeDetails,linkedInProfile:e.target.value}})}/>
       <Toggle label='Active' checked={this.state.employeeDetails.isActive} onChange={(e:any,checked)=>this.setState({employeeDetails:{...this.state.employeeDetails,isActive: !!checked}})}/>
       </Stack>
-      <PrimaryButton onClick={this.createItem} > Add Entry </PrimaryButton>
+      <PrimaryButton onClick={this.state.isEditCall ?this.updateItem :this.createItem} >{this.state.isEditCall ? "Update" : "Add"}</PrimaryButton>
       <br/>
       <table>
         <thead>
@@ -90,10 +160,10 @@ export default class Assingment8 extends React.Component<IAssingment8Props, IAss
           {this.state.employeeArr.map((item:any) => (
             <tr>
               <td>{item.title}</td>
-              <td>{item.isActive}</td>
+              <td>{item.isActive ? "Active":"Inactive"}</td>
               <td>{item.linkedInProfile}</td>
               <td>{item.employeeAge}</td>
-              <td><PrimaryButton>Edit</PrimaryButton> <PrimaryButton>Delete</PrimaryButton> </td>
+              <td><PrimaryButton onClick={()=>{this.editItem(item.Id)}}>Edit</PrimaryButton> <PrimaryButton onClick={()=>{this.deleteItem(item.Id)}}>Delete</PrimaryButton> </td>
             </tr>
           ))}
         
