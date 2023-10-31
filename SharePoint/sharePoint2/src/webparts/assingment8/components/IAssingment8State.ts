@@ -8,9 +8,16 @@ export interface IAssingmentState
     isActive : boolean;
    
 };
+
+
+
 isEditCall : boolean;
 employeeArr : Employee[];
+
+
+
 }
+
 
 interface Employee {
     Id:number;
@@ -19,3 +26,4 @@ interface Employee {
     linkedInProfile:any;
     isActive : boolean;
 }
+ 
