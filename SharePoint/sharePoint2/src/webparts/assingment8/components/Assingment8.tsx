@@ -43,8 +43,7 @@ export default class Assingment8 extends React.Component<any, IAssingment8State>
     try {
       const list = sp.web.lists.getByTitle('Assingment_8');
       const items = await list.items
-        .select('Id', 'Title', 'Active', 'ProfileLink', 'Age/Id', 'Age/Age').top(2).orderBy('Created', true) // Include Age/Id and Age/Age in select') // Include Age/Id and Age/Age in select
-        .expand('Age') ()
+        .select('Id', 'Title', 'Active', 'ProfileLink', 'Age/Id', 'Age/Age').top(2).orderBy('Created', true).expand('Age')()
   
       const modifiedData = items.map((element) => ({
         Id: element.Id,
