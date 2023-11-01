@@ -1,7 +1,6 @@
 interface ILibraryItem {
-    Id: number;
-    Title: string;
-    BookName: { Id: number; Title: string };
+
+    BookName: { key: number; text: string };
   }
 
 export interface ILookupState 
@@ -10,7 +9,7 @@ export interface ILookupState
     bookDetails : {
         allotedTo : string;
         bookName : string;
-    }
+    },
 
     bookArr : ILibraryItem[];
 }
