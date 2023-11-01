@@ -3,13 +3,12 @@ import type { ILookupProps } from './ILookupProps';
 import { ILookupState } from './ILookupState';
 import { SPFI, SPFx, spfi } from "@pnp/sp/presets/all";
 import {
-  // PrimaryButton,
+  PrimaryButton,
   //  DefaultButton,
   // Modal,
 
   Dropdown, 
   IDropdownOption,
-  
   TextField,
   Stack,
   DetailsList,
@@ -18,6 +17,7 @@ import {
   DetailsListLayoutMode,
  
 } from "@fluentui/react";
+import styles from './Lookup.module.scss';
 
 
 let sp:SPFI;
@@ -77,8 +77,7 @@ export default class Lookup extends React.Component<ILookupProps, ILookupState> 
   
   componentDidMount(): void {
     sp.web.lists.getByTitle('Library List')
-      .items.select('Id', 'Title', 'BookName/Id', 'BookName/Title')
-      .expand('BookName')()
+      .items.select('Id', 'Title', 'BookName/Id', 'BookName/Title').expand('BookName')()
       .then((items: any[]) => {
         const bookArr = items.map((item) => ({
           Id: item.Id,
@@ -97,10 +96,31 @@ export default class Lookup extends React.Component<ILookupProps, ILookupState> 
       });
   }
 
-  onChange = ( option:any) => {
-    this.setState({bookDetails: { ...this.state.bookDetails, bookName: option.key }});
-    console.log("After Change" , this.state.bookDetails)
-  };
+  onChange = (e: any, selection: any) => {
+    console.log("Selection",selection);
+    this.setState({ bookDetails: { ...this.state.bookDetails, bookName: selection.key } });
+    console.log("State this  Value",this.state.bookDetails);
+};
+createItem = async (): Promise<void> => 
+{ 
+  const {allotedTo,bookName} = this.state.bookDetails;
+  try{
+    const item = await sp.web.lists.getByTitle('Library List')
+      .items.add({
+        Title: allotedTo,
+        BookNameId: parseInt(bookName),
+      });
+      this.setState({bookDetails:{allotedTo : "", bookName : ""}});
+    console.log("Item created",item);
+  
+  
+  }
+  catch(error)
+  {
+    console.error('Error creating item:', error);
+  
+  }
+}
 
 
   
@@ -119,11 +139,11 @@ export default class Lookup extends React.Component<ILookupProps, ILookupState> 
           <Dropdown
         label="Select an option"
         selectedKey={this.state.bookDetails.bookName  ? this.state.bookDetails.bookName  : undefined}
-        onChange={(options)=>this.onChange(options)}
+        onChange={this.onChange}
         options={this.dropdownOptions}
       />
 
-         
+         <PrimaryButton className={styles.btn}  style={{marginTop:"10px"}} onClick={this.createItem} >Add Entry</PrimaryButton>
         </Stack>
 
 
@@ -135,6 +155,7 @@ export default class Lookup extends React.Component<ILookupProps, ILookupState> 
             selectionPreservedOnEmptyClick={true}
             ariaLabelForSelectionColumn="Toggle selection"
             ariaLabelForSelectAllCheckbox="Toggle selection for all items"
+            
           />
 
       
