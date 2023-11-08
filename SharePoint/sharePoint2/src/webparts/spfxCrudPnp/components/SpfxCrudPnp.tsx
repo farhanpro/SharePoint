@@ -7,9 +7,6 @@ import { SPFI, SPFx, spfi } from "@pnp/sp/presets/all";
 import {
   PrimaryButton,
    DefaultButton,
-  // Dialog,
-  // DialogType,
-  // DialogFooter,
   Modal,
   TextField,
   Stack,

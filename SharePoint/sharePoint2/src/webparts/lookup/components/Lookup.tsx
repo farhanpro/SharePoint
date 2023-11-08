@@ -6,7 +6,6 @@ import {
   PrimaryButton,
   //  DefaultButton,
   // Modal,
-
   Dropdown, 
   IDropdownOption,
   TextField,
@@ -122,7 +121,15 @@ createItem = async (): Promise<void> =>
   }
 }
 
-
+deleteItem = async (itemId: number): Promise<void> => {
+  try {
+    await sp.web.lists.getByTitle('Library List').items.getById(itemId).delete();
+   
+    alert(`Item Deleted Successfully`);
+  } catch (err) {
+    console.log('Error', err);
+  }
+};
   
   public render(): React.ReactElement<ILookupProps> {
     
@@ -155,7 +162,7 @@ createItem = async (): Promise<void> =>
             selectionPreservedOnEmptyClick={true}
             ariaLabelForSelectionColumn="Toggle selection"
             ariaLabelForSelectAllCheckbox="Toggle selection for all items"
-            
+
           />
 
       

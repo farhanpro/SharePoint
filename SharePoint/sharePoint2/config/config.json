@@ -121,6 +121,22 @@
           "manifest": "./src/webparts/lookup/LookupWebPart.manifest.json"
         }
       ]
+    },
+    "person-and-images-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/personAndImages/PersonAndImagesWebPart.js",
+          "manifest": "./src/webparts/personAndImages/PersonAndImagesWebPart.manifest.json"
+        }
+      ]
+    },
+    "group-permission-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/groupPermission/GroupPermissionWebPart.js",
+          "manifest": "./src/webparts/groupPermission/GroupPermissionWebPart.manifest.json"
+        }
+      ]
     }
   },
   "externals": {},
@@ -142,6 +158,8 @@
     "SpfCurdPnpWebPartStrings": "lib/webparts/spfCurdPnp/loc/{locale}.js",
     "SpfxCrudPnpWebPartStrings": "lib/webparts/spfxCrudPnp/loc/{locale}.js",
     "Assingment8WebPartStrings": "lib/webparts/assingment8/loc/{locale}.js",
-    "LookupWebPartStrings": "lib/webparts/lookup/loc/{locale}.js"
+    "LookupWebPartStrings": "lib/webparts/lookup/loc/{locale}.js",
+    "PersonAndImagesWebPartStrings": "lib/webparts/personAndImages/loc/{locale}.js",
+    "GroupPermissionWebPartStrings": "lib/webparts/groupPermission/loc/{locale}.js"
   }
 }
