@@ -18,14 +18,6 @@
         }
       ]
     },
-    "calculator-web-part": {
-      "components": [
-        {
-          "entrypoint": "./lib/webparts/calculator/CalculatorWebPart.js",
-          "manifest": "./src/webparts/calculator/CalculatorWebPart.manifest.json"
-        }
-      ]
-    },
     "shopping-cart-web-part": {
       "components": [
         {
@@ -137,6 +129,38 @@
           "manifest": "./src/webparts/groupPermission/GroupPermissionWebPart.manifest.json"
         }
       ]
+    },
+    "slider-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/slider/SliderWebPart.js",
+          "manifest": "./src/webparts/slider/SliderWebPart.manifest.json"
+        }
+      ]
+    },
+    "quick-links-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/quickLinks/QuickLinksWebPart.js",
+          "manifest": "./src/webparts/quickLinks/QuickLinksWebPart.manifest.json"
+        }
+      ]
+    },
+    "link-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/link/LinkWebPart.js",
+          "manifest": "./src/webparts/link/LinkWebPart.manifest.json"
+        }
+      ]
+    },
+    "events-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/events/EventsWebPart.js",
+          "manifest": "./src/webparts/events/EventsWebPart.manifest.json"
+        }
+      ]
     }
   },
   "externals": {},
@@ -160,6 +184,11 @@
     "Assingment8WebPartStrings": "lib/webparts/assingment8/loc/{locale}.js",
     "LookupWebPartStrings": "lib/webparts/lookup/loc/{locale}.js",
     "PersonAndImagesWebPartStrings": "lib/webparts/personAndImages/loc/{locale}.js",
-    "GroupPermissionWebPartStrings": "lib/webparts/groupPermission/loc/{locale}.js"
+    "GroupPermissionWebPartStrings": "lib/webparts/groupPermission/loc/{locale}.js",
+    "SliderWebPartStrings": "lib/webparts/slider/loc/{locale}.js",
+    "ControlStrings": "node_modules/@pnp/spfx-controls-react/lib/loc/{locale}.js",
+    "QuickLinksWebPartStrings": "lib/webparts/quickLinks/loc/{locale}.js",
+    "LinkWebPartStrings": "lib/webparts/link/loc/{locale}.js",
+    "EventsWebPartStrings": "lib/webparts/events/loc/{locale}.js"
   }
 }

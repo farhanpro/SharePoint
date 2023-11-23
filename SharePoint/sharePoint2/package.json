@@ -22,10 +22,13 @@
     "@microsoft/sp-webpart-base": "1.18.0",
     "@pnp/graph": "^3.19.0",
     "@pnp/sp": "^3.19.0",
+    "@pnp/spfx-controls-react": "^3.15.0",
     "json-server": "^0.17.4",
     "office-ui-fabric-react": "^7.204.0",
     "react": "17.0.1",
     "react-dom": "17.0.1",
+    "react-slick": "^0.29.0",
+    "slick-carousel": "^1.8.1",
     "tslib": "2.3.1"
   },
   "devDependencies": {
@@ -37,6 +40,7 @@
     "@rushstack/eslint-config": "2.5.1",
     "@types/react": "17.0.45",
     "@types/react-dom": "17.0.17",
+    "@types/react-slick": "^0.23.12",
     "@types/webpack-env": "~1.15.2",
     "ajv": "^6.12.5",
     "eslint": "8.7.0",

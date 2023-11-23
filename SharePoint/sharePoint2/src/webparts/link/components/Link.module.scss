@@ -1,6 +1,6 @@
 @import '~@fluentui/react/dist/sass/References.scss';
 
-.calculator {
+.link {
   overflow: hidden;
   padding: 1em;
   color: "[theme:bodyText, default: #323130]";
@@ -31,4 +31,46 @@
       color: var(--linkHovered); // note: CSS Custom Properties support is limited to modern browsers only
     }
   }
+}
+.heading{
+  text-align: center;
+}
+.link{
+  margin-left: 10px;
+}
+.icon{
+  // margin-left: 10px;
+  background-color: skyblue;
+}
+.icon1{
+  // padding: 10px 20px;
+  font-size: 40px;
+}
+.container{
+  margin-left: 10px;
+  display: inline-block;
+  border: 2px solid black;
+  width: 20%;
+  height: 15%;
+  margin-top: 20px;
+}
+.container1{
+  width: 25%;
+  height: 16%;
+  cursor: pointer;
+  border: 2px solid rgb(70, 70, 70);
+}
+.main{
+  padding: 15px 10px;
+  height: 50%;
+}
+.icon{
+  padding: 20px 10px;
+  height: 50%;
+}
+.iconStyle{
+  margin-top: 20px;
+  align-items: center;
+  margin-left: 35%;
+  
 }

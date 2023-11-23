@@ -1,4 +1,4 @@
-declare interface ICalculatorWebPartStrings {
+declare interface ISliderWebPartStrings {
   PropertyPaneDescription: string;
   BasicGroupName: string;
   DescriptionFieldLabel: string;
@@ -13,7 +13,7 @@ declare interface ICalculatorWebPartStrings {
   UnknownEnvironment: string;
 }
 
-declare module 'CalculatorWebPartStrings' {
-  const strings: ICalculatorWebPartStrings;
+declare module 'SliderWebPartStrings' {
+  const strings: ISliderWebPartStrings;
   export = strings;
 }

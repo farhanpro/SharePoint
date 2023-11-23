@@ -8,28 +8,34 @@ import {
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 import { IReadonlyTheme } from '@microsoft/sp-component-base';
 
-import * as strings from 'CalculatorWebPartStrings';
-import Calculator from './components/Calculator';
-import { ICalculatorProps } from './components/ICalculatorProps';
+import * as strings from 'EventsWebPartStrings';
+import Events from './components/Events';
+import { IEventsProps } from './components/IEventsProps';
+import {spfi,SPFx} from "@pnp/sp/presets/all";
+import { WebPartContext } from '@microsoft/sp-webpart-base';
 
-export interface ICalculatorWebPartProps {
+
+
+export interface IEventsWebPartProps {
   description: string;
+  context : WebPartContext;
 }
 
-export default class CalculatorWebPart extends BaseClientSideWebPart<ICalculatorWebPartProps> {
+export default class EventsWebPart extends BaseClientSideWebPart<IEventsWebPartProps> {
 
   private _isDarkTheme: boolean = false;
   private _environmentMessage: string = '';
 
   public render(): void {
-    const element: React.ReactElement<ICalculatorProps> = React.createElement(
-      Calculator,
+    const element: React.ReactElement<IEventsProps> = React.createElement(
+      Events,
       {
         description: this.properties.description,
         isDarkTheme: this._isDarkTheme,
         environmentMessage: this._environmentMessage,
         hasTeamsContext: !!this.context.sdks.microsoftTeams,
-        userDisplayName: this.context.pageContext.user.displayName
+        userDisplayName: this.context.pageContext.user.displayName,
+        spcontext : this.context
       }
     );
 
@@ -39,6 +45,8 @@ export default class CalculatorWebPart extends BaseClientSideWebPart<ICalculator
   protected onInit(): Promise<void> {
     return this._getEnvironmentMessage().then(message => {
       this._environmentMessage = message;
+      const sp = spfi().using(SPFx(this.context));
+      console.log(sp);
     });
   }
 
