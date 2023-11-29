@@ -33,3 +33,30 @@
     }
   }
 }
+
+.adjustment {
+  width: 100%;
+  height: 300px;
+}
+
+:global {
+ 
+  .Slider .slick-next:before,
+  .slick-prev:before {
+    color: black !important;
+  }
+ 
+  .Slider .slick-next {
+    position: absolute;
+    color: black !important;
+    margin-right: 7%;
+  }
+ 
+  .Slider .slick-prev {
+    position: absolute;
+    z-index: 1;
+    color: black !important;
+    margin-left: 8%;
+    // top: 50%;
+  }
+}

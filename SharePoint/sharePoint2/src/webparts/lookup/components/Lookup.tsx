@@ -150,8 +150,9 @@ deleteItem = async (itemId: number): Promise<void> => {
         options={this.dropdownOptions}
       />
 
-         <PrimaryButton className={styles.btn}  style={{marginTop:"10px"}} onClick={this.createItem} >Add Entry</PrimaryButton>
-        </Stack>
+        <PrimaryButton className={styles.btn}  style={{marginTop:"10px"}} onClick={this.createItem} >
+          Add Entry
+        </PrimaryButton></Stack>
 
 
       <DetailsList
@@ -162,11 +163,7 @@ deleteItem = async (itemId: number): Promise<void> => {
             selectionPreservedOnEmptyClick={true}
             ariaLabelForSelectionColumn="Toggle selection"
             ariaLabelForSelectAllCheckbox="Toggle selection for all items"
-
           />
-
-      
-      
     </div>
     );
   }

@@ -1,4 +1,3 @@
-
 import type { ISliderProps } from './ISliderProps';
 import "@pnp/sp/webs";
 import "@pnp/sp/site-users/web";
@@ -8,7 +7,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import * as React from 'react';
-
+import styles from './Slider.module.scss';
+import { Stack } from 'office-ui-fabric-react';
 
 
 
@@ -51,17 +51,21 @@ export default class Sliders extends React.Component<ISliderProps, ISliderState>
     };
     
     return (
-      <Slider {...settings}>
+      <Stack style={{position:'relative'}} >
+      <Stack.Item className='Slider'>
+      <Slider className={styles.slider} {...settings}>
         {this.state.currentDetailsImageArr.map((item, index) => {
           const temp2 = JSON.parse(item.image);
           return (
             <div key={index}>
               <h3>{item.title}</h3>
-              <img  src={temp2.serverRelativeUrl} alt={item.title} />
+              <img className={styles.adjustment}  src={temp2.serverRelativeUrl} alt={item.title} />
             </div>
           );
         })}
       </Slider>
+      </Stack.Item>
+      </Stack>
     );
   }
 

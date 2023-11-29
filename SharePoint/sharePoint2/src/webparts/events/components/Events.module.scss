@@ -50,9 +50,13 @@
   margin-left: 10px;
   display: inline-block;
   border: 2px solid black;
-  width: 50%;
+  width: 80%;
   height: 15%;
   margin-top: 20px;
+}
+
+.eventsWidth{
+  width:75%;
 }
 .container1{
   width: 25%;
@@ -60,6 +64,7 @@
   margin-top: 20px;
   cursor: pointer;
   border: 2px solid rgb(70, 70, 70);
+  margin-left: 10px;
 }
 .main{
   padding: 15px 10px;
@@ -74,4 +79,10 @@
   align-items: center;
   margin-left: 35%;
   
+}
+
+:global {
+  .slick-slider{
+    width: 70%;
+  }
 }
