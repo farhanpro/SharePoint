@@ -161,6 +161,14 @@
           "manifest": "./src/webparts/events/EventsWebPart.manifest.json"
         }
       ]
+    },
+    "list-crud-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/listCrud/ListCrudWebPart.js",
+          "manifest": "./src/webparts/listCrud/ListCrudWebPart.manifest.json"
+        }
+      ]
     }
   },
   "externals": {},
@@ -189,6 +197,7 @@
     "ControlStrings": "node_modules/@pnp/spfx-controls-react/lib/loc/{locale}.js",
     "QuickLinksWebPartStrings": "lib/webparts/quickLinks/loc/{locale}.js",
     "LinkWebPartStrings": "lib/webparts/link/loc/{locale}.js",
-    "EventsWebPartStrings": "lib/webparts/events/loc/{locale}.js"
+    "EventsWebPartStrings": "lib/webparts/events/loc/{locale}.js",
+    "ListCrudWebPartStrings": "lib/webparts/listCrud/loc/{locale}.js"
   }
 }

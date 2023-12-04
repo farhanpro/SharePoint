@@ -47,24 +47,26 @@
   font-size: 40px;
 }
 .container{
-  margin-left: 10px;
-  display: inline-block;
-  border: 2px solid black;
-  width: 80%;
-  height: 15%;
-  margin-top: 20px;
+  border: 2px solid aliceblue  ; 
+  padding-left: 10px;
+  padding: 10px;
 }
 
 .eventsWidth{
   width:75%;
 }
 .container1{
+  padding: 10px;
   width: 25%;
-  height: 16%;
-  margin-top: 20px;
+  height: 30%;
   cursor: pointer;
-  border: 2px solid rgb(70, 70, 70);
-  margin-left: 10px;
+  border: 1px solid aliceblue;  
+}
+div.container:hover{
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
+}
+div.container1:hover{
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
 }
 .main{
   padding: 15px 10px;
@@ -80,9 +82,23 @@
   margin-left: 35%;
   
 }
-
 :global {
-  .slick-slider{
-    width: 70%;
+  .Slider .slick-next:before,
+  .slick-prev:before {
+    color: black !important;
+  }
+ 
+  .Slider .slick-next {
+    position: absolute;
+    color: black !important;
+    margin-right: 3%;
+  }
+ 
+  .Slider .slick-prev {
+    position: absolute;
+    z-index: 1;
+    color: black !important;
+    margin-left: 3%;
+    // top: 50%;
   }
 }

@@ -18,8 +18,10 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 
 let sp: SPFI;
-export default class Events extends React.Component<IEventsProps,IEventsState> 
-{
+export default class Events extends React.Component<
+  IEventsProps,
+  IEventsState
+> {
   dropdownOptions: IDropdownOption[] = [
     { key: "4", text: "Choice3" },
     { key: "3", text: "Business" },
@@ -49,7 +51,7 @@ export default class Events extends React.Component<IEventsProps,IEventsState>
 
   onChange = (e: any, selection: any) => {
     console.log("Selection", selection);
-    this.setState({Category: selection.text });
+    this.setState({ Category: selection.text });
     console.log(
       "State this  Value",
       this.state.Title,
@@ -75,7 +77,7 @@ export default class Events extends React.Component<IEventsProps,IEventsState>
           modifiedData.push(modifiedObject);
         });
         this.setState({ EventsArr: modifiedData });
-        console.log(this.state.EventsArr);
+        console.log("Location to be searched here = ",this.state.EventsArr);
       })
       .catch((error: any) => {
         console.log(error);
@@ -87,7 +89,7 @@ export default class Events extends React.Component<IEventsProps,IEventsState>
     try {
       const item = await sp.web.lists.getByTitle("Events2").items.add({
         Title,
-        When: this.state.When ? this.state.When.toISOString() : '',
+        When: this.state.When ? this.state.When.toISOString() : "",
         DispName: Where,
         Link,
         Category,
@@ -111,16 +113,16 @@ export default class Events extends React.Component<IEventsProps,IEventsState>
       dots: true,
       infinite: true,
       speed: 500,
-      slidesToShow: 2,
+      slidesToShow: 3,
       slidesToScroll: 1,
     };
-
+    //var daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
     return (
       <Stack>
         <h1 className={styles.heading}>Events Webpart</h1>
         <Stack className={styles.main}>
           <h2>Create a Event</h2>
-          <PrimaryButton onClick={() => this.setState({ isEditModal: true })}>
+          <PrimaryButton styles={{ root: { width: '140px',color:'grey',backgroundColor:'white' } }} iconProps={{ iconName: 'Add' }} onClick={() => this.setState({ isEditModal: true })}>
             Add Event
           </PrimaryButton>
           <Modal
@@ -180,54 +182,70 @@ export default class Events extends React.Component<IEventsProps,IEventsState>
                 options={this.dropdownOptions}
               />
             </Stack>
-          
-            <PrimaryButton style={{ marginLeft: "10px", marginTop: "10px" }} onClick={() => this.createEvent()}>Submit</PrimaryButton>
-          
+
+            <PrimaryButton
+              style={{ marginLeft: "10px", marginTop: "10px" }}
+              onClick={() => this.createEvent()}
+            >
+              Submit
+            </PrimaryButton>
           </Modal>
+        </Stack>
+
+        <Stack >
+        <Slider className='Slider' {...settings}  >
+          <Stack className={styles.container}>
+            <div className={styles.icon}>
+              <Icon
+                iconName="AddEvent"
+                aria-label="Add Online Event Icon"
+                style={{ fontSize: "40px" }}
+                className={styles.iconStyle}
+              />
+            </div>
+            <div className={styles.main}>
+              <h2>Create an Event</h2>
+              <p>
+                When you add an Event, it will show here where your renders can
+                see it.
+              </p>
+            </div>
+           
           </Stack>
-          <Stack horizontal tokens={{ childrenGap:40 }}>
-            <Stack className={styles.container1}>
-              <div className={styles.icon}>
-                <Icon
-                  iconName="AddEvent"
-                  aria-label="Add Online Event Icon"
-                  style={{ fontSize: "40px" }}
-                  className={styles.iconStyle}
-                />
-              </div>
-              <div className={styles.main}>
-                <h2>Create an Event</h2>
-                <p>
-                  When you add an Event, it will show here where your renders
-                  can see it.
-                </p>
-              </div>
-              <hr />
-            </Stack>
-            <Slider {...settings} >
-                {this.state.EventsArr.map((item, key) => (
+          
+            {this.state.EventsArr.map((item, key) => (
               <Stack horizontal tokens={{ childrenGap: 10 }}>
-            <div>
+                <div>
                   <Stack key={key} className={styles.container}>
-                    <h5>{item.title}</h5>
-                    <hr />
+                    <h1>
+                      Month
+                      <br />
+                      {new Date(item.when).getMonth() + 1}
+                      <hr />
+                    </h1> 
+                      <p>
+                        Category
+                        <br />
+                        <b>{item.category}</b>
+                      </p>
+                      <p>
+                        Title
+                        <br />
+                        <b>{item.title}</b>
+                      </p>
+                   
                     <Stack>
-                      <p>Category: {item.category}</p>
-                      <p>Title: {item.title}</p>
-                    </Stack>
-                    <Stack>
-                      <h4>Time: {item.when}</h4>
+                      <h4>Time: {new Date(item.when).getHours()}</h4>
                       <p>Location: {item.where}</p>
                     </Stack>
                     <hr />
                   </Stack>
                 </div>
               </Stack>
-                ))}
-            </Slider>
-          </Stack>
+            ))}
+          </Slider>
         </Stack>
-     
+      </Stack>
     );
   }
 }

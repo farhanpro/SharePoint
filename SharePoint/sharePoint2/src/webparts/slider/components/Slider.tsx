@@ -58,7 +58,7 @@ export default class Sliders extends React.Component<ISliderProps, ISliderState>
           const temp2 = JSON.parse(item.image);
           return (
             <div key={index}>
-              <h3>{item.title}</h3>
+              <h3 className={styles.description}>{item.title}</h3>
               <img className={styles.adjustment}  src={temp2.serverRelativeUrl} alt={item.title} />
             </div>
           );

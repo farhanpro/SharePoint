@@ -1,6 +1,6 @@
 @import '~@fluentui/react/dist/sass/References.scss';
 
-.slider {
+.listCrud {
   overflow: hidden;
   padding: 1em;
   color: "[theme:bodyText, default: #323130]";
@@ -14,7 +14,10 @@
   text-align: center;
 }
 
-
+.welcomeImage {
+  width: 100%;
+  max-width: 420px;
+}
 
 .links {
   a {
@@ -27,40 +30,5 @@
       color: "[theme:linkHovered, default: #014446]";
       color: var(--linkHovered); // note: CSS Custom Properties support is limited to modern browsers only
     }
-  }
-}
-
-.adjustment {
-  width: 100%;
-  position: relative;
-  height: 300px;
-}
-.description {
-  top: 80%;  
-  position: absolute;
-  z-index: 1;
-  margin-left: 5%;
-  background-color: #fff;
-}
-
-:global {
- 
-  .Slider .slick-next:before,
-  .slick-prev:before {
-    color: black !important;
-  }
- 
-  .Slider .slick-next {
-    position: absolute;
-    color: black !important;
-    margin-right: 7%;
-  }
- 
-  .Slider .slick-prev {
-    position: absolute;
-    z-index: 1;
-    color: black !important;
-    margin-left: 8%;
-    // top: 50%;
   }
 }
