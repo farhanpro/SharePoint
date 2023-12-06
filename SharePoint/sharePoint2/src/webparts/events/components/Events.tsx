@@ -32,6 +32,7 @@ export default class Events extends React.Component<
     super(props);
     sp = spfi().using(SPFx(this.props.spcontext));
     this.state = {
+      Id: null,
       Title: "",
       When: null,
       Where: "",
@@ -61,14 +62,16 @@ export default class Events extends React.Component<
       this.state.Category
     );
   };
+
   componentDidMount(): void {
     sp.web.lists
       .getByTitle("Events2")
-      .items.select("Title", "When", "DispName", "Link", "Category")()
+      .items.select("Id", "Title", "When", "DispName", "Link", "Category")()
       .then((items: any[]) => {
         let modifiedData: any[] = [];
         items.map(async (i: any) => {
           let modifiedObject: any = {};
+          modifiedObject.id = i.Id;
           modifiedObject.title = i.Title;
           modifiedObject.when = i.When;
           modifiedObject.where = i.DispName;
@@ -77,7 +80,7 @@ export default class Events extends React.Component<
           modifiedData.push(modifiedObject);
         });
         this.setState({ EventsArr: modifiedData });
-        console.log("Location to be searched here = ",this.state.EventsArr);
+        console.log("Location to be searched here = ", this.state.EventsArr);
       })
       .catch((error: any) => {
         console.log(error);
@@ -107,6 +110,34 @@ export default class Events extends React.Component<
       console.log(error);
     }
   };
+  deleteItem = async (itemId: number): Promise<void> => {
+    try {
+      await sp.web.lists.getByTitle('Events2').items.getById(itemId).delete();
+      await this.componentDidMount();
+      alert(`Item Deleted Successfully`);
+    } catch (err) {
+      console.log('Error', err);
+    }
+  };
+
+  editEvent = async (id : any) : Promise<void> =>{
+    try {
+      const result = await sp.web.lists.getByTitle('Events2').items.getById(id)();
+      console.log("Results : ",result);
+      this.setState({
+        Id:result.id,
+        Title:result.Title,
+        When:new Date(result.When),
+        Where:result.Where.DisplayName,
+        Link:result.Link,
+        Category:result.Category,
+        isEditModal : true
+      });
+    }
+    catch(err){
+      console.log('Error',err);
+    }
+  };
 
   public render(): React.ReactElement<IEventsProps> {
     var settings = {
@@ -120,9 +151,16 @@ export default class Events extends React.Component<
     return (
       <Stack>
         <h1 className={styles.heading}>Events Webpart</h1>
-        <Stack className={styles.main}>
+
+        <Stack className={styles.container}>
           <h2>Create a Event</h2>
-          <PrimaryButton styles={{ root: { width: '140px',color:'grey',backgroundColor:'white' } }} iconProps={{ iconName: 'Add' }} onClick={() => this.setState({ isEditModal: true })}>
+          <PrimaryButton
+            styles={{
+              root: { width: "140px", color: "grey", backgroundColor: "white" },
+            }}
+            iconProps={{ iconName: "Add" }}
+            onClick={() => this.setState({ isEditModal: true })}
+          >
             Add Event
           </PrimaryButton>
           <Modal
@@ -192,51 +230,83 @@ export default class Events extends React.Component<
           </Modal>
         </Stack>
 
-        <Stack >
-        <Slider className='Slider' {...settings}  >
-          <Stack className={styles.container}>
-            <div className={styles.icon}>
-              <Icon
-                iconName="AddEvent"
-                aria-label="Add Online Event Icon"
-                style={{ fontSize: "40px" }}
-                className={styles.iconStyle}
-              />
-            </div>
-            <div className={styles.main}>
-              <h2>Create an Event</h2>
-              <p>
-                When you add an Event, it will show here where your renders can
-                see it.
-              </p>
-            </div>
-           
-          </Stack>
-          
+        <Stack className={styles.container}>
+          <Slider className="Slider" {...settings}>
+            <Stack>
+              <div className={styles.icon}>
+                <Icon
+                  iconName="AddEvent"
+                  aria-label="Add Online Event Icon"
+                  style={{ fontSize: "40px" }}
+                  className={styles.iconStyle}
+                />
+              </div>
+              <div className={styles.main}>
+                <h2>Create an Event</h2>
+                <p>
+                  When you add an Event, it will show here where your renders
+                  can see it.
+                </p>
+              </div>
+            </Stack>
+
             {this.state.EventsArr.map((item, key) => (
               <Stack horizontal tokens={{ childrenGap: 10 }}>
                 <div>
                   <Stack key={key} className={styles.container}>
-                    <h1>
-                      Month
-                      <br />
-                      {new Date(item.when).getMonth() + 1}
-                      <hr />
-                    </h1> 
+                    <Stack>
+                      <h1>
+                        Month
+                        <br />
+                        {new Date(item.when).getMonth() + 1}
+                        <hr />
+                      </h1>
+                    </Stack>
+
+                    <Stack>
                       <p>
                         Category
                         <br />
                         <b>{item.category}</b>
                       </p>
-                      <p>
+                    </Stack>
+                    <Stack>
                         Title
                         <br />
                         <b>{item.title}</b>
-                      </p>
-                   
+                      
+                    </Stack>
+
                     <Stack>
                       <h4>Time: {new Date(item.when).getHours()}</h4>
                       <p>Location: {item.where}</p>
+                    </Stack>
+                    <Stack>
+                      <PrimaryButton
+                        styles={{
+                          root: {
+                           
+                            color: "grey",
+                            paddingRight: 0,
+                            backgroundColor:"white"
+                          },
+                        }}
+                        iconProps={{ iconName: "edit" }}
+                        onClick={()=>{this.editEvent(item.id)}}
+                      ></PrimaryButton>
+
+                      <PrimaryButton
+                        styles={{
+                          root: {
+                           
+                            color: "red",
+                            paddingLeft: 0,
+                            backgroundColor:"white"
+                          },
+                        }}
+                        iconProps={{ iconName: "delete" }}
+                        onClick={()=>{this.deleteItem(item.id)}}
+                      ></PrimaryButton>
                     </Stack>
                     <hr />
                   </Stack>

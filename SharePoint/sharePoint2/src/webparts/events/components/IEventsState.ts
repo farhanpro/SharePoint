@@ -1,4 +1,5 @@
 export interface IEventsState{
+    Id : any;
     Title:string;
     When:any;
     Where:string;
@@ -8,6 +9,7 @@ export interface IEventsState{
     EventsArr: IEvents[];
 }
 export interface IEvents{
+    id : any;
     title:string;
     when:any;
     where:string;
