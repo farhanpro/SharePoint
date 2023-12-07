@@ -5,17 +5,10 @@ export interface IAssingmentState
     title : any;
     employeeAge : any;
     linkedInProfile:any;
-    isActive : boolean;
-   
+    isActive : boolean; 
 };
-
-
-
 isEditCall : boolean;
 employeeArr : Employee[];
-
-
-
 }
 
 

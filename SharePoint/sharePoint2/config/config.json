@@ -169,6 +169,22 @@
           "manifest": "./src/webparts/listCrud/ListCrudWebPart.manifest.json"
         }
       ]
+    },
+    "birthday-bash-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/birthdayBash/BirthdayBashWebPart.js",
+          "manifest": "./src/webparts/birthdayBash/BirthdayBashWebPart.manifest.json"
+        }
+      ]
+    },
+    "annoucments-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/annoucments/AnnoucmentsWebPart.js",
+          "manifest": "./src/webparts/annoucments/AnnoucmentsWebPart.manifest.json"
+        }
+      ]
     }
   },
   "externals": {},
@@ -198,6 +214,8 @@
     "QuickLinksWebPartStrings": "lib/webparts/quickLinks/loc/{locale}.js",
     "LinkWebPartStrings": "lib/webparts/link/loc/{locale}.js",
     "EventsWebPartStrings": "lib/webparts/events/loc/{locale}.js",
-    "ListCrudWebPartStrings": "lib/webparts/listCrud/loc/{locale}.js"
+    "ListCrudWebPartStrings": "lib/webparts/listCrud/loc/{locale}.js",
+    "BirthdayBashWebPartStrings": "lib/webparts/birthdayBash/loc/{locale}.js",
+    "AnnoucmentsWebPartStrings": "lib/webparts/annoucments/loc/{locale}.js"
   }
 }
