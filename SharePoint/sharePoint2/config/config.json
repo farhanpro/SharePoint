@@ -185,6 +185,14 @@
           "manifest": "./src/webparts/annoucments/AnnoucmentsWebPart.manifest.json"
         }
       ]
+    },
+    "contacts-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/contacts/ContactsWebPart.js",
+          "manifest": "./src/webparts/contacts/ContactsWebPart.manifest.json"
+        }
+      ]
     }
   },
   "externals": {},
@@ -216,6 +224,7 @@
     "EventsWebPartStrings": "lib/webparts/events/loc/{locale}.js",
     "ListCrudWebPartStrings": "lib/webparts/listCrud/loc/{locale}.js",
     "BirthdayBashWebPartStrings": "lib/webparts/birthdayBash/loc/{locale}.js",
-    "AnnoucmentsWebPartStrings": "lib/webparts/annoucments/loc/{locale}.js"
+    "AnnoucmentsWebPartStrings": "lib/webparts/annoucments/loc/{locale}.js",
+    "ContactsWebPartStrings": "lib/webparts/contacts/loc/{locale}.js"
   }
 }

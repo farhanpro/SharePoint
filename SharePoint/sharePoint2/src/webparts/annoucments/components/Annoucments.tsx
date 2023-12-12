@@ -6,6 +6,8 @@ import { SPFI, SPFx, spfi } from '@pnp/sp/presets/all';
 import { IAnnouncmentsState } from './IAnnouncments.state';
 import { Stack } from '@fluentui/react/lib/Stack';
 import {Icon} from  "office-ui-fabric-react";
+//import { PrimaryButton } from '@fluentui/react';
+
 
 let sp: SPFI;
 
@@ -19,9 +21,10 @@ export default class Annoucments extends React.Component<IAnnoucmentsProps, IAnn
       image : '',
       employeeArr : []
     }
-    sp = spfi().using(SPFx(this.props.spcontext));
+    sp = spfi().using(SPFx(this.props.spcontext));   
 
   }
+
   componentDidMount(): void {
       sp.web.lists.getByTitle("Announcements").items.select()()
     .then((items:any)=>{
@@ -38,27 +41,35 @@ export default class Annoucments extends React.Component<IAnnoucmentsProps, IAnn
     })
   }
 
+  CreateItem = async (): Promise<void> =>{
+    try{
+      const addAnnouncement =  await sp.web.lists.getByTitle("Announcements").items.add({
+        Title: this.state.title,
+        link:{Description:`Announcement ${this.state.employeeArr.length +1}`,Link0:this.state.link},
+        image:this.state.image,
+      })
+      console.log("Announcements Added : ",addAnnouncement)
+    }
+    catch(e){
+      console.log('Error', e);
+    }
+  }
+
+
   public render(): React.ReactElement<IAnnoucmentsProps> {
     return (
    <Stack>
     <Stack className={styles.box2}>
-     
-     <Icon
-                  iconName="Megaphone"
-                  aria-label="Add Online Event Icon"
-                  style={{ fontSize: "40px" }}
-                  
-                />
-                
-                     <h2 style={{marginLeft:"20px"}}>Annoucements</h2>
-
+     <Icon iconName="Megaphone" aria-label="Add Online Event Icon" style={{ fontSize: "40px" }}/>
+       <h2 style={{marginLeft:"20px",marginTop:"5px"}}>Annoucements</h2>
+       
     </Stack>
     {this.state.employeeArr.map((item)=>{
       const temp2 = JSON.parse(item.image);
       return(
         <Stack key={item.Id} className={styles.box}>
            <img className={styles.welcomeImage} src={temp2.serverRelativeUrl} alt={item.title}/> 
-          <Stack style={{width:"84%",height:"100%"}}>
+          <Stack style={{width:"70%",height:"100%"}}>
           <h3>{item.title}</h3> 
           <p><a href={item.link.Url}>{item.link.Description}</a></p>
           </Stack>
