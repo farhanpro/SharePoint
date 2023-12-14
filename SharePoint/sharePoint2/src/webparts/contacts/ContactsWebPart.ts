@@ -11,9 +11,12 @@ import { IReadonlyTheme } from '@microsoft/sp-component-base';
 import * as strings from 'ContactsWebPartStrings';
 import Contacts from './components/Contacts';
 import { IContactsProps } from './components/IContactsProps';
+import { WebPartContext } from "@microsoft/sp-webpart-base";
+import {spfi, SPFx} from "@pnp/sp";
 
 export interface IContactsWebPartProps {
   description: string;
+  spcontext :  WebPartContext;
 }
 
 export default class ContactsWebPart extends BaseClientSideWebPart<IContactsWebPartProps> {
@@ -29,7 +32,8 @@ export default class ContactsWebPart extends BaseClientSideWebPart<IContactsWebP
         isDarkTheme: this._isDarkTheme,
         environmentMessage: this._environmentMessage,
         hasTeamsContext: !!this.context.sdks.microsoftTeams,
-        userDisplayName: this.context.pageContext.user.displayName
+        userDisplayName: this.context.pageContext.user.displayName,
+        spcontext : this.context,
       }
     );
 
@@ -39,6 +43,8 @@ export default class ContactsWebPart extends BaseClientSideWebPart<IContactsWebP
   protected onInit(): Promise<void> {
     return this._getEnvironmentMessage().then(message => {
       this._environmentMessage = message;
+      const sp = spfi().using(SPFx(this.context));
+      console.log(sp);
     });
   }
 
