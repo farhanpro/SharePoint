@@ -193,6 +193,14 @@
           "manifest": "./src/webparts/contacts/ContactsWebPart.manifest.json"
         }
       ]
+    },
+    "pro-quick-links-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/proQuickLinks/ProQuickLinksWebPart.js",
+          "manifest": "./src/webparts/proQuickLinks/ProQuickLinksWebPart.manifest.json"
+        }
+      ]
     }
   },
   "externals": {},
@@ -225,6 +233,7 @@
     "ListCrudWebPartStrings": "lib/webparts/listCrud/loc/{locale}.js",
     "BirthdayBashWebPartStrings": "lib/webparts/birthdayBash/loc/{locale}.js",
     "AnnoucmentsWebPartStrings": "lib/webparts/annoucments/loc/{locale}.js",
-    "ContactsWebPartStrings": "lib/webparts/contacts/loc/{locale}.js"
+    "ContactsWebPartStrings": "lib/webparts/contacts/loc/{locale}.js",
+    "ProQuickLinksWebPartStrings": "lib/webparts/proQuickLinks/loc/{locale}.js"
   }
 }
