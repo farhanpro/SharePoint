@@ -50,14 +50,6 @@
         }
       ]
     },
-    "counter-2-web-part": {
-      "components": [
-        {
-          "entrypoint": "./lib/webparts/counter2/Counter2WebPart.js",
-          "manifest": "./src/webparts/counter2/Counter2WebPart.manifest.json"
-        }
-      ]
-    },
     "fluient-ui-web-part": {
       "components": [
         {
@@ -170,14 +162,6 @@
         }
       ]
     },
-    "birthday-bash-web-part": {
-      "components": [
-        {
-          "entrypoint": "./lib/webparts/birthdayBash/BirthdayBashWebPart.js",
-          "manifest": "./src/webparts/birthdayBash/BirthdayBashWebPart.manifest.json"
-        }
-      ]
-    },
     "annoucments-web-part": {
       "components": [
         {
@@ -201,6 +185,14 @@
           "manifest": "./src/webparts/proQuickLinks/ProQuickLinksWebPart.manifest.json"
         }
       ]
+    },
+    "contacts-2-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/contacts2/Contacts2WebPart.js",
+          "manifest": "./src/webparts/contacts2/Contacts2WebPart.manifest.json"
+        }
+      ]
     }
   },
   "externals": {},
@@ -212,7 +204,6 @@
     "EmployeeDetailsWebPartStrings": "lib/webparts/employeeDetails/loc/{locale}.js",
     "ParentChildWebPartStrings": "lib/webparts/parentChild/loc/{locale}.js",
     "RestApiWebPartStrings": "lib/webparts/restApi/loc/{locale}.js",
-    "Counter2WebPartStrings": "lib/webparts/counter2/loc/{locale}.js",
     "FluientUiWebPartStrings": "lib/webparts/fluientUi/loc/{locale}.js",
     "EditableRowsWebPartStrings": "lib/webparts/editableRows/loc/{locale}.js",
     "FluientFormWebPartStrings": "lib/webparts/fluientForm/loc/{locale}.js",
@@ -231,9 +222,9 @@
     "LinkWebPartStrings": "lib/webparts/link/loc/{locale}.js",
     "EventsWebPartStrings": "lib/webparts/events/loc/{locale}.js",
     "ListCrudWebPartStrings": "lib/webparts/listCrud/loc/{locale}.js",
-    "BirthdayBashWebPartStrings": "lib/webparts/birthdayBash/loc/{locale}.js",
     "AnnoucmentsWebPartStrings": "lib/webparts/annoucments/loc/{locale}.js",
     "ContactsWebPartStrings": "lib/webparts/contacts/loc/{locale}.js",
-    "ProQuickLinksWebPartStrings": "lib/webparts/proQuickLinks/loc/{locale}.js"
+    "ProQuickLinksWebPartStrings": "lib/webparts/proQuickLinks/loc/{locale}.js",
+    "Contacts2WebPartStrings": "lib/webparts/contacts2/loc/{locale}.js"
   }
 }

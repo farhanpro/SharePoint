@@ -8,22 +8,22 @@ import {
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 import { IReadonlyTheme } from '@microsoft/sp-component-base';
 
-import * as strings from 'Counter2WebPartStrings';
-import Counter2 from './components/Counter2';
-import { ICounter2Props } from './components/ICounter2Props';
+import * as strings from 'Contacts2WebPartStrings';
+import Contacts2 from './components/Contacts2';
+import { IContacts2Props } from './components/IContacts2Props';
 
-export interface ICounter2WebPartProps {
+export interface IContacts2WebPartProps {
   description: string;
 }
 
-export default class Counter2WebPart extends BaseClientSideWebPart<ICounter2WebPartProps> {
+export default class Contacts2WebPart extends BaseClientSideWebPart<IContacts2WebPartProps> {
 
   private _isDarkTheme: boolean = false;
   private _environmentMessage: string = '';
 
   public render(): void {
-    const element: React.ReactElement<ICounter2Props> = React.createElement(
-      Counter2,
+    const element: React.ReactElement<IContacts2Props> = React.createElement(
+      Contacts2,
       {
         description: this.properties.description,
         isDarkTheme: this._isDarkTheme,

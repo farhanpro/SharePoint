@@ -1,4 +1,4 @@
-export interface ICounter2Props {
+export interface IContacts2Props {
   description: string;
   isDarkTheme: boolean;
   environmentMessage: string;

@@ -1,4 +1,4 @@
-declare interface ICounter2WebPartStrings {
+declare interface IContacts2WebPartStrings {
   PropertyPaneDescription: string;
   BasicGroupName: string;
   DescriptionFieldLabel: string;
@@ -13,7 +13,7 @@ declare interface ICounter2WebPartStrings {
   UnknownEnvironment: string;
 }
 
-declare module 'Counter2WebPartStrings' {
-  const strings: ICounter2WebPartStrings;
+declare module 'Contacts2WebPartStrings' {
+  const strings: IContacts2WebPartStrings;
   export = strings;
 }

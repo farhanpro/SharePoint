@@ -1,10 +1,10 @@
 import * as React from 'react';
-import styles from './BirthdayBash.module.scss';
-import type { IBirthdayBashProps } from './IBirthdayBashProps';
+import styles from './Contacts2.module.scss';
+import type { IContacts2Props } from './IContacts2Props';
 import { escape } from '@microsoft/sp-lodash-subset';
 
-export default class BirthdayBash extends React.Component<IBirthdayBashProps, {}> {
-  public render(): React.ReactElement<IBirthdayBashProps> {
+export default class Contacts2 extends React.Component<IContacts2Props, {}> {
+  public render(): React.ReactElement<IContacts2Props> {
     const {
       description,
       isDarkTheme,
@@ -14,7 +14,7 @@ export default class BirthdayBash extends React.Component<IBirthdayBashProps, {}
     } = this.props;
 
     return (
-      <section className={`${styles.birthdayBash} ${hasTeamsContext ? styles.teams : ''}`}>
+      <section className={`${styles.contacts2} ${hasTeamsContext ? styles.teams : ''}`}>
         <div className={styles.welcome}>
           <img alt="" src={isDarkTheme ? require('../assets/welcome-dark.png') : require('../assets/welcome-light.png')} className={styles.welcomeImage} />
           <h2>Well done, {escape(userDisplayName)}!</h2>

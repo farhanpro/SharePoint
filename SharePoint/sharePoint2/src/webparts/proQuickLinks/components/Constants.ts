@@ -66,7 +66,7 @@ export default class Constants {
         PPT: {iconName: "Ppt", style: {fontSize: 15,color:'#80539C'}},
         EMAIL: {iconName: "Mail", style: {fontSize: 15,color:'#80539C'}},
         LINK: {iconName: "Link", style: {fontSize: 15,color:'#80539C'}},
-        PDF:  {iconName: "Pdf", style: {fontSize: 15,color:'#80539C'}}
+        PDF:  {iconName: "Pdf", style: {fontSize: 15,color:'#EA7D21'}}
     }
 
     public static STACKTOKENS = {

@@ -1,7 +1,7 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
-  "id": "a02c41ee-d546-48c4-9643-1d7e825391e7",
-  "alias": "Counter2WebPart",
+  "id": "3588042b-b8ae-4248-bcbe-1189331dd269",
+  "alias": "Contacts2WebPart",
   "componentType": "WebPart",
 
   // The "*" signifies that the version should be taken from the package.json
@@ -18,11 +18,11 @@
   "preconfiguredEntries": [{
     "groupId": "5c03119e-3074-46fd-976b-c60198311f70", // Advanced
     "group": { "default": "Advanced" },
-    "title": { "default": "counter2" },
-    "description": { "default": "counter2 description" },
+    "title": { "default": "Contacts2" },
+    "description": { "default": "Contacts2 description" },
     "officeFabricIconFontName": "Page",
     "properties": {
-      "description": "counter2"
+      "description": "Contacts2"
     }
   }]
 }
